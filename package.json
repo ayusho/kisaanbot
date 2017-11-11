@@ -1,0 +1,24 @@
+{
+  "name": "kisaanbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayusho/kisaanbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayusho/kisaanbot/issues"
+  },
+  "homepage": "https://github.com/ayusho/kisaanbot#readme",
+  "dependencies": {
+    "botbuilder": "^3.11.0",
+    "csvtojson": "^1.1.9",
+    "restify": "^6.3.2"
+  }
+}
