@@ -22,7 +22,7 @@ server.post('/api/messages', connector.listen());
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("You said: %s", session.message.text);
 });
-var recognizer = new builder.LuisRecognizer('https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/c7a0386e-2e35-4a29-8045-5b1f6f72823a?subscription-key=20730903132843f284ca37b0bc03438f&spellCheck=true&timezoneOffset=0&q=');
+var recognizer = new builder.LuisRecognizer('https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/c7a0386e-2e35-4a29-8045-5b1f6f72823a?subscription-key=20730903132843f284ca37b0bc03438f&spellCheck=true&verbose=true&timezoneOffset=0&q=');
 bot.recognizer(recognizer);
 // call the fromFile function which takes in the path to your
 // csv file as well as a callback function
@@ -52,6 +52,16 @@ converter.fromFile("datasetCSV.csv", function (err, result) {
         session.send('Spray captaf at 2gram per liter of water');
     }).triggerAction({
         matches: 'plant_protection'
+    });
+    bot.dialog('seeds_planting_material', function (session, args, next) {
+        session.send('Sowing seeds of golden acre pride of India Pusa Mukta etc.');
+    }).triggerAction({
+        matches: 'seeds_planting_material'
+    });
+    bot.dialog('nutrient_management', function (session, args, next) {
+        session.send('Green harvest solution @ 25 grams in 10 litres of water has been adviced to spray during flowering stage.');
+    }).triggerAction({
+        matches: 'nutrient_management'
     });
 });
 
